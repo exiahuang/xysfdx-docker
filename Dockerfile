@@ -1,6 +1,7 @@
 FROM azul/zulu-openjdk-alpine:13.0.1
 
 RUN apk add --repository http://dl-cdn.alpinelinux.org/alpine/edge/main/ --no-cache \
+  git \
   nodejs \
   nodejs-npm \
   yarn \
@@ -22,7 +23,11 @@ RUN npm install --global sfdx-cli \
   prettier \
   prettier-plugin-apex
 
-RUN sfdx plugins:install sfdx-xy-plugin
+# install exiahuang/sfdx-xy-plugin
+RUN git clone https://github.com/exiahuang/sfdx-xy-plugin /opt/sfdx-xy-plugin && \
+    cd /opt/sfdx-xy-plugin && \
+    npm install && \
+    sfdx plugins:link .
 
 # change to root folder
 WORKDIR /app/sfdx
