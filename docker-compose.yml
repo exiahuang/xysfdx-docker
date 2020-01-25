@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+    sfdx:
+      image: exiasfdc/sfdx
+      volumes:
+        - ./:/app/sfdx
+      tty: true
+      init: true
+      stdin_open: true
