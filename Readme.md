@@ -14,3 +14,37 @@
 - prettier
 - prettier-plugin-apex
 - [exiahuang/sfdx-xy-plugin](https://github.com/exiahuang/sfdx-xy-plugin)
+
+# Use xysfdx and xysfdx-docker to develope salesforce
+
+## install xysfdx in vscode
+
+install [xysfdx](https://marketplace.visualstudio.com/items?itemName=ExiaHuang.xysfdx)
+
+## pull images
+
+pull images : `docker: pull image exiasfdc/sfdx`
+
+![xysfdx-docker-image](https://raw.githubusercontent.com/exiahuang/xycode-doc/gh-pages/images/xysfdx-docker-image.gif)
+
+## create container
+
+create container : `docker: create sfdx container`
+
+![xysfdx-docker-container](https://raw.githubusercontent.com/exiahuang/xycode-doc/gh-pages/images/xysfdx-docker-container.gif)
+
+## use docker shell
+
+use docker shell : `docker: attach docker shell`
+
+![xysfdx-docker-bash](https://raw.githubusercontent.com/exiahuang/xycode-doc/gh-pages/images/xysfdx-docker-bash.gif)
+
+then , use the `xysfdx` to develope sfdx.
+
+
+## attention
+
+- can not use `force:auth:web:login` or `force:auth:web:login:setdefaultusername`
+- can not use `force:project:create`
+- use `xy:auth:username:login` to auth
+
