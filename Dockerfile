@@ -33,14 +33,13 @@ RUN apt-get install -qqy nodejs yarn
 RUN npm install -g heroku
 
 # node sfdx-cli prettier
-RUN npm install -g heroku
 RUN npm install --global sfdx-cli
 RUN npm install --global prettier prettier-plugin-apex
 
 # Installs Ant
 ENV ANT_VERSION 1.10.7
 RUN cd && \
-    wget -q http://archive.apache.org/dist/ant/binaries/apache-ant-${ANT_VERSION}-bin.tar.gz && \
+    curl -O http://archive.apache.org/dist/ant/binaries/apache-ant-${ANT_VERSION}-bin.tar.gz && \
     tar -xzf apache-ant-${ANT_VERSION}-bin.tar.gz && \
     mv apache-ant-${ANT_VERSION} /opt/ant && \
     rm apache-ant-${ANT_VERSION}-bin.tar.gz
