@@ -1,10 +1,13 @@
 # xysfdx-docker
 
 - salesforce develope docker 
-- for [xysfdx](https://github.com/exiahuang/xysfdx)
+- for [exiahuang/xysfdx](https://github.com/exiahuang/xysfdx).
+
+> xysfdx is a vscode plugin, a Rapid development tool for Salesforce Development.
 
 # What's included
 
+- base on ubuntu:18.04
 - Zulu13.28 openjdk version "13.0.1"
 - Apache Ant(TM) version 1.10.7
 - git
@@ -14,6 +17,7 @@
 - prettier
 - prettier-plugin-apex
 - [exiahuang/sfdx-xy-plugin](https://github.com/exiahuang/sfdx-xy-plugin)
+- [exiahuang/sfdc-cli](https://github.com/exiahuang/sfdc-cli) is a sfdc development kit.
 
 # Use xysfdx and xysfdx-docker to develope salesforce
 
