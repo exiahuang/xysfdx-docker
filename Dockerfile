@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 USER root
 ENV DEBIAN_FRONTEND=noninteractive
 ENV HOME /root
@@ -7,37 +7,31 @@ RUN apt-get -qq update
 RUN apt-get -qqy install gnupg2 curl jq git
 
 # Shift timezone
-RUN apt-get install -y tzdata
-
-RUN apt-get -qqy install locales && \
+RUN apt-get -y install tzdata && \
+    apt-get -qqy install locales && \
     locale-gen en_US.UTF-8
-
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
 # python
-RUN apt-get -qqy install python3 python3-pip python-pip
+RUN apt-get -qqy install python3 python3-pip
 
-# zulu java 13
+# zulu java 14
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9 && \
     echo "deb http://repos.azulsystems.com/ubuntu stable main" >> /etc/apt/sources.list.d/zulu.list && \
     apt-get -qq update && \
-    apt-get -qqy install zulu-13
+    apt-get -qqy install zulu-14
 
 # node
-RUN curl -sL https://deb.nodesource.com/setup_13.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
 RUN apt-get install -qqy nodejs yarn
 
 # heroku
-RUN npm install -g heroku
-
-# node sfdx-cli prettier
-RUN npm install --global sfdx-cli
-RUN npm install --global prettier prettier-plugin-apex
+RUN npm install -g heroku sfdx-cli prettier prettier-plugin-apex
 
 # Installs Ant
-ENV ANT_VERSION 1.10.7
+ENV ANT_VERSION 1.10.12
 RUN cd && \
     curl -O http://archive.apache.org/dist/ant/binaries/apache-ant-${ANT_VERSION}-bin.tar.gz && \
     tar -xzf apache-ant-${ANT_VERSION}-bin.tar.gz && \
@@ -61,4 +55,4 @@ RUN pip3 install sfdc-cli
 WORKDIR /app/sfdx
 
 # clean
-RUN apt clean && rm -rf /var/lib/apt/lists/*
+RUN apt clean && rm -rf /var/lib/apt/lists/* && npm cache clean --force && rm -rf ~/.cache/

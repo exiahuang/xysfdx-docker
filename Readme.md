@@ -7,13 +7,13 @@
 
 # What's included
 
-- base on ubuntu:18.04
-- Zulu13.28 openjdk version "13.0.1"
-- Apache Ant(TM) version 1.10.7
+- base on ubuntu:20.04
+- Zulu14 openjdk version "14.0.2"
+- Apache Ant(TM) version 1.10.12
 - git
-- node v12.14.1
-- npm 6.13.4
-- sfdx-cli/7.43.1 linux-x64 node-v12.14.1
+- node v16.14.2
+- npm 8.5.0
+- sfdx-cli/7.146.1 linux-x64 node-v16.14.2
 - prettier
 - prettier-plugin-apex
 - [exiahuang/sfdx-xy-plugin](https://github.com/exiahuang/sfdx-xy-plugin)
